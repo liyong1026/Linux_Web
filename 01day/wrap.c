@@ -212,7 +212,7 @@ int tcp4bind(short port,const char *IP)
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port   = htons(port);
     int opt = 1;
-	setsockopt(lfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+	setsockopt(lfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));//打开文件端口复用功能
 
     Bind(lfd,(struct sockaddr *)&serv_addr,sizeof(serv_addr));
     return lfd;
